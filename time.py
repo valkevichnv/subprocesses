@@ -14,11 +14,12 @@ class TimerThread(Thread):
             print(time.ctime())
 
 
-stopFlag = Event()
-thread = TimerThread(stopFlag)
+if __name__ == '__main__':
+    stopFlag = Event()
+    thread = TimerThread(stopFlag)
 
-thread.start()
-while True:
-    if input() == ' ':
-        stopFlag.set()
-        break
+    thread.start()
+    while True:
+        if input() == ' ':
+            stopFlag.set()
+            break
