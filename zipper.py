@@ -1,3 +1,9 @@
+'''
+задача 3 - Сделать скрипт, который в многопоточном режиме зазипует эти файлы.
+Дополнительный плюс - если в в конце выведете
+ - время работы каждого потока
+ - количество занимаемой оперативной памяти.
+'''
 from zipfile import ZipFile
 from threading import Thread
 import os
@@ -15,7 +21,7 @@ class ZipThread(Thread):
     def run(self):
         self.start_time = time.time()
         print('Thread %s is zipping %s' % (self.filename.split('.')[0], self.filename))
-        with ZipFile('%s.zip' % filename.split('.')[0], 'w') as archive:
+        with ZipFile('%s.zip' % self.filename.split('.')[0], 'w') as archive:
             archive.write(filename)
         self.end_time = time.time()
         print('File %s zipped in %.5f seconds' % (self.filename, self.end_time - self.start_time))
