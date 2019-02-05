@@ -10,7 +10,7 @@ class TimerThread(Thread):
 
     def run(self):
         print(time.ctime())
-        while not self.stopped.wait(1):
+        while not self.stopped.wait(30):
             print(time.ctime())
 
 
