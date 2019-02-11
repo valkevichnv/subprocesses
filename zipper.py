@@ -35,3 +35,4 @@ if __name__ == "__main__":
     for filename in ['%s.txt' % str(i) for i in range(1, 11)]:
         thread = ZipThread(filename)
         thread.start()
+
